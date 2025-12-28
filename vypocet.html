@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propustky - Výpočet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="home-link" aria-label="Domů">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V11.5z" fill="currentColor"/>
+            </svg>
+        </a>
+        <h1>Propustky</h1>
+        <h2>Výpočet</h2>
+    </header>
+    <main>
+        <p>
+            Program využívá Manningovu/Chezyho formulaci pro návrh betonového propustku: na základě
+            zadaného průtoku, sklonu a drsnosti vypočítá závislost rychlosti a průtoku na procentuálním
+            plnění trubky a určí, zda je proudění říční, kritické nebo bystřinné.
+        </p>
+
+        <article aria-labelledby="calc-summary">
+            <h2 id="calc-summary">Popis výpočtu</h2>
+
+            <section aria-labelledby="geometry">
+                <h3 id="geometry">Geometrie a průtočná plocha</h3>
+                <p>
+                    Pro částečně naplněnou kruhovou trubku se používá segment kruhu. Relativní výška hladiny
+                    h (0–1) se převede na středový úhel segmentu podle vzorce
+                </p>
+                <p>
+                    <em class="formula">ψ = 2 · arccos(1 − 2 · h)</em>
+                </p>
+                <p>
+                    Průtočná plocha segmentu se spočte jako
+                </p>
+                <p>
+                    <em class="formula">A = d² / 8 · (ψ − sin ψ),</em>  
+                </p>
+                <p>
+                    kde d je vnitřní průměr trubky v metrech.
+                </p>
+            </section>
+
+            <section aria-labelledby="hydraulic">
+                <h3 id="hydraulic">Hydraulický poloměr a rychlost</h3>
+                <p>
+                    Smáčený obvod je 
+                </p>
+                <p>
+                    <em class="formula">P = d · ψ / 2</em>
+                </p>
+                <p>
+                    a hydraulický poloměr <em class="formula">R = A / P.</em>
+                </p>
+                <p>
+                    Pro odhad rychlosti proudění se používá Chezy/Manningův tvar:
+                </p>
+                <p>
+                    <em class="formula">v = C · √(R · S), kde C = (1 / n) · R^(1/6),</em>
+                </p>
+                <p>
+                    kde S je bezrozměrný sklon (m/m) a n je koeficient drsnosti (typicky ~0.012–0.015).
+                    Průtok pak je <em class="formula">Q = A · v.</em>
+                </p>
+            </section>
+
+            <section aria-labelledby="froude">
+                <h3 id="froude">Froudeho číslo a typ proudění</h3>
+                <p>
+                    Pro určení režimu proudění se používá Froudeho číslo:
+                </p>
+                <p>
+                    <em class="formula">Fr = v / √(g · h_hyd),</em>
+                </p>
+                <p>
+                    kde hydraulická hloubka h_hyd = A / B a B je šířka hladiny v řezu.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Typ proudění v závislosti na Fr</th>
+                        </tr>
+                        <tr>
+                            <th>Fr</th>
+                            <th>Typ proudění</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fr &lt; 1</td>
+                            <td>řiční (subkritické)</td>
+                        </tr>
+                        <tr>
+                            <td>Fr = 1</td>
+                            <td>kritické</td>
+                        </tr>
+                        <tr>
+                            <td>Fr &gt; 1</td>
+                            <td>bystřinné (superkritické)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </article>
+
+    </main>
+    <footer>
+        <p>&copy; 2025 Propustky. Všechna práva vyhrazena.</p>
+        <p>Pro další informace nebo technickou podporu kontaktujte:
+            <a href="mailto:kontakt@propustky.cz">kontakt@propustky.cz</a>
+        </p>
+        <a href="index.html">Zpět na hlavní stránku</a>  
+    </footer>  
+</body>    
+</html>

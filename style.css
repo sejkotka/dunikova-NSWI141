@@ -1,0 +1,118 @@
+table { 
+    border-collapse: collapse; 
+    margin: 0.5em auto; 
+}
+th, td { 
+    border: 1px solid #000; 
+    padding: 4px 8px; 
+}
+thead th[colspan] { 
+    text-align: center; 
+}
+html {
+    background-color: #ebeff7;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: #ffffff;
+}
+
+p {
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+h1 {
+    font-family: "Roboto Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+h2, h3 {
+    color: #404f6d;
+}
+
+h3 {
+    margin-top: 2.0em;
+}
+
+header {
+    background-color: #c8cfdd;
+    color: #293246;
+    padding: 1em;
+    position: relative;
+}
+
+.home-link {
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #293246;
+    text-decoration: none;
+    background: transparent; 
+    transition: .18s;
+}
+.home-link svg { 
+    width: 22px; 
+    height: 22px; 
+}
+
+.home-link:hover,
+.home-link:focus { 
+    color: #5f74a1; 
+    background: rgba(11,99,214,0.08); 
+}
+.home-link:active { 
+    transform: scale(0.85); 
+}
+
+header > h1 {
+    text-shadow: #293246 1px 1px 2px;
+}
+
+main {
+    padding: 1em;
+}
+
+footer {
+    background-color: #c8cfdd;
+    color: #293246;
+    text-align: center;
+    padding: 1em;
+}
+
+img {
+     display: block;
+     margin: 1em auto;
+     max-width: 100%;
+     height: auto;
+     border: 1px solid #293246;
+     border-radius: 4px;
+     border-color: #293246;     
+}
+
+.card {
+    border: 1px solid #293246;
+    border-radius: 4px;
+    border-color: #293246;
+    background-color: #ebeff7;
+    max-width: 20rem;
+    margin: 0.75em auto;
+}
+
+.formula {
+    display: block;
+    text-align: center;
+}
